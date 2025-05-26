@@ -10,16 +10,13 @@ func start_of_turn(cardAnim):
 
 	print("Reconstitute triggered!")	
 	var old_data = card.card_data.duplicate()
-	if card.card_data.name == "Ouroboros":
-		old_data.attack += 1
-		old_data.health += 1
-
 	fightManager.gold_sarcophagus.append(
 		{
 			"card": old_data,
 			"turnsleft": 1
 		}
 	)
+
 	# Calculate buffs
 	slotManager.recalculate_buffs_and_such()
 #	for card in slotManager.all_friendly_cards():
