@@ -4,11 +4,11 @@ extends SigilEffect
 func start_of_turn(cardAnim):
 	cardAnim.play("Evolve")
 	yield (cardAnim, "animation_finished")
-	print("Reconstitute triggered!")	
-	var old_data = card.card_data.duplicate()
 	var dmgTaken = card.card_data["health"] - card.health
 	card.from_data(CardInfo.from_name(card.card_data["evolution"]))
 	card.health = card.card_data["health"] - dmgTaken
+	print("Reconstitute triggered!")	
+	var old_data = card.card_data.duplicate()
 	# Calculate buffs
 	slotManager.recalculate_buffs_and_such()
 #	for card in slotManager.all_friendly_cards():
